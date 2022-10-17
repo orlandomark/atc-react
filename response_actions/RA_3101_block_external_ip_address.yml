@@ -1,19 +1,19 @@
 title: RA_3101_block_external_ip_address
 id: RA3101
 description: >
-  Block an external IP address from being accessed by corporate assets
-author: '@atc_project'
-creation_date: 2019/01/31
+  Block an external IP address in Palo Alto EDL
+author: 'mark orlando'
+creation_date: 2022/09/28
 stage: containment
 requirements:
-  - MS_border_firewall
-  - MS_border_proxy
-  - MS_border_ips
-  - MS_border_ngfw
-  - MS_host_firewall
+  - Palo Alto management access
 workflow: |
-  Block an external IP address from being accessed by corporate assets, using the most efficient way.  
+  An external dynamic list (EDL) is an address object based on an imported list of IP addresses, URLs, domain names, International Mobile Equipment Identities (IMEIs), or International Mobile Subscriber Identities (IMSIs) that you can use in policy rules to block or allow traffic.   
+
+  You can use an IP address list as an address object in the source and destination of policy rules; you can use a URL List in a URL Filtering profile (Objects > Security Profiles > URL Filtering) or as a match criteria in Security policy rules; and you can use a domain list (Objects > Security Profiles > Anti-Spyware Profile) as a sinkhole for specified domain names.
+
+  See ''Standard Operating Procedure - SOPIR002 Updating PAN External Dynamic Lists (EDL)''
 
   Warning:  
 
-  - Be careful blocking IP addresses. Make sure it's not a cloud provider or a hoster. If you would like to block something that is hosted on a well-known cloud provider or on a big hoster IP address, you should block (if applicable) a specific URL using alternative Response Action   
+  - Thoroughly research external IP addresses before blocking to ensure it is not a shared hosting or content delivery network scenario where legitimate sites and services may also get blocked. If there is risk of this type of collateral damage, evaluate another containment method such as domain blocking. 

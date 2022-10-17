@@ -1,0 +1,18 @@
+title: RA_3002_fraudulent_domain_takedown
+id: RA3002
+description: >
+  Work with legal to request fraudulent domain takedown
+author: 'mark orlando'
+creation_date: 2022/09/28
+stage: containment
+requirements:
+workflow: |
+  Scenarios where we would follow this playbook include:
+    - A fake KKR social media profile is discovered
+    - A fake KKR web site is discovered
+    - A deliberately misspelled domain aiming to emulate the KKR brand or services
+    - Damaging content is uncovered in online video platforms such as YouTube
+    - Online message board posts displaying offensive or damaging content relating to the KKR brand
+
+In such incidents, we engage our third-party vendor ZeroFox to perform a takedown of the domain or offending social media page/s.  We must also contact our KKR legal and public-policy teams to notify them of the incident should any further legislative or public-relations actions be required. See ''Fraudulent Domain Typosquatting Social Media KKR Branding.''
+  

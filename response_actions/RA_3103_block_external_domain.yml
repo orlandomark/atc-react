@@ -2,19 +2,23 @@ title: RA_3103_block_external_domain
 id: RA3103
 description: >
   Block an external domain name from being accessed by corporate assets
-author: '@atc_project'
-creation_date: 2019/01/31
+author: 'mark orlando'
+creation_date: 2022/09/28
 stage: containment
 references:
-  - https://en.wikipedia.org/wiki/DNS_sinkhole
+https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-admin/policy/use-an-external-dynamic-list-in-policy/external-dynamic-list
+https://support.opendns.com/hc/en-us/articles/227987287-How-to-Add-Domains-to-your-Block-list-Allow-list
 requirements:
-  - MS_border_proxy
-  - MS_border_ips
-  - MS_border_ngfw
-  - MS_dns_server
+  - Palo Alto management access
 workflow: |
-  Block an external domain name from being accessed by corporate assets, using the most efficient way.  
+  An external dynamic list (EDL) is an address object based on an imported list of IP addresses, URLs, domain names, International Mobile Equipment Identities (IMEIs), or International Mobile Subscriber Identities (IMSIs) that you can use in policy rules to block or allow traffic.   
+
+  You can use an IP address list as an address object in the source and destination of policy rules; you can use a URL List in a URL Filtering profile (Objects > Security Profiles > URL Filtering) or as a match criteria in Security policy rules; and you can use a domain list (Objects > Security Profiles > Anti-Spyware Profile) as a sinkhole for specified domain names.
+
+  See ''Standard Operating Procedure - SOPIR002 Updating PAN External Dynamic Lists (EDL)''
+
+  Alternatively, hosts in the environment can be prevented from resolving a malicious domain via OpenDNS. To ensure that all of the subdomains are also allowed/blocked properly, remove the 'www' from domains you enter in your Block list/Allow list.
   
   Warning:  
-  
-  - Be careful blocking doman names. Make sure it's not a cloud provider or a hoster. If you would like to block something that is hosted on a well-known cloud provider or on a big hoster doman, you should block (if applicable) a specific URL using alternative Response Action   
+
+  - Thoroughly research external IP addresses before blocking to ensure it is not a shared hosting or content delivery network scenario where legitimate sites and services may also get blocked. If there is risk of this type of collateral damage, evaluate another containment method such as domain blocking. 
